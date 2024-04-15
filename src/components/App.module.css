@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.contactBook {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}

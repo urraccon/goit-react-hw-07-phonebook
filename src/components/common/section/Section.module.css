@@ -1,0 +1,11 @@
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 400;
+  padding: 20px 25px;
+  margin: 0;
+}
