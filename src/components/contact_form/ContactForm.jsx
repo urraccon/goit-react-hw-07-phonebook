@@ -5,13 +5,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { addContact } from 'components/redux/contactsSlice';
+import { selectContacts } from 'components/redux/selectors';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(selectContacts);
 
   const inputChange = evt => {
     const { value, name } = evt.target;
@@ -30,11 +31,11 @@ const ContactForm = () => {
   const formSubmit = evt => {
     evt.preventDefault();
 
-    if (number.length === 0 || name.length === 0) {
+    if (number.trim().length === 0 || name.trim().length === 0) {
       return;
     }
 
-    if (contacts?.length > 0) {
+    if (contacts.length > 0) {
       const [isAlreadyAdded] = contacts.map(contact =>
         contact.name.includes(name)
       );

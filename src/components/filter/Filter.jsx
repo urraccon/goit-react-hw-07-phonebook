@@ -2,12 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Filter.module.css';
 import { Input } from 'components/common/input/Input';
 import { setFilter } from 'components/redux/contactsFilterSlice';
+import { selectTerm } from 'components/redux/selectors';
 
 export const Filter = () => {
-  const term = useSelector(state => state.contactsFilter);
+  const term = useSelector(selectTerm);
   const dispatch = useDispatch();
-
-  console.log('term is: ', term);
 
   return (
     <div className={styles.filter}>
