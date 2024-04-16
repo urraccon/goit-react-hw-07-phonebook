@@ -1,12 +1,17 @@
 import styles from './ContactList.module.css';
 import { Button } from 'components/common/button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'components/redux/contactsSlice';
 import { filteredContacts } from 'components/redux/selectors';
+import { deleteContact, fetchContacts } from 'components/redux/operations';
+import { useEffect } from 'react';
 
 export const ContactList = () => {
   const contacts = useSelector(filteredContacts);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <div className={styles.container}>
@@ -18,7 +23,7 @@ export const ContactList = () => {
                 {`${contacts.indexOf(contact) + 1}.`}
                 <span className={styles.name}>
                   {`${contact.name}:`}
-                  <span className={styles.number}>{contact.number}</span>
+                  <span className={styles.number}>{contact.phone}</span>
                 </span>
               </span>
               <Button onClick={() => dispatch(deleteContact(contact.id))}>

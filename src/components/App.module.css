@@ -9,9 +9,10 @@
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
+  position: relative;
 }
 
-.contactBook {
+.phonebook {
   display: flex;
   flex-direction: column;
   gap: 30px;
